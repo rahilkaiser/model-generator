@@ -1,0 +1,3 @@
+[submodule "octopus"]
+	path = octopus
+	url = git@github.com:rahilkaiser/octopus.git
