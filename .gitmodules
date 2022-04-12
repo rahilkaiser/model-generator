@@ -4,3 +4,6 @@
 [submodule "CIHP_PGN"]
 	path = CIHP_PGN
 	url = git@github.com:rahilkaiser/CIHP_PGN.git
+[submodule "semantic_human_texture_stitching"]
+	path = semantic_human_texture_stitching
+	url = https://github.com/rahilkaiser/semantic_human_texture_stitching.git
