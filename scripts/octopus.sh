@@ -1,0 +1,1 @@
+docker exec octopus python infer_single.py sample ./data/segmentations/ ./data/keypoints/ --out_dir ./data/obj_file

@@ -1,0 +1,54 @@
+version: "3"
+
+services:
+  semantic-segmentation:
+    container_name: semantic_segmentation
+    build: ./semantic_segmentation
+    volumes: 
+      - './data:/usr/src/app/data'
+    command: tail -F anything #keep Container running
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+
+  openpose:
+    container_name: openpose
+    build: ./openpose
+    volumes: 
+      - './data:/openpose/data'
+    command: tail -F anything #keep Container running
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+
+  octopus:
+    container_name: octopus
+    build: ./octopus
+    volumes:
+      - './data:/usr/src/app/data'
+    command: tail -F anything #keep Container running
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+
+  stitching:
+    container_name: human_texture_stitching
+    build: ./semantic_human_texture_stitching
+    volumes:
+      - './data:/usr/src/app/data'
+    command: tail -F anything #keep Container running
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
