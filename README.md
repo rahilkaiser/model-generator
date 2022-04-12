@@ -1,21 +1,24 @@
 # model-generator
 
-### Prerequisites
+## Prerequisites
 - Docker
-- Docker-compose version 3 : 
+- Docker-compose version 3
 - Docker-Nvidia: https://github.com/NVIDIA/nvidia-docker
 
-### Inital setup for CIHP_PGN
+## Inital setup for CIHP_PGN
 1. Download the pretrained model from [google drive](https://drive.google.com/open?id=1Mqpse5Gen4V4403wFEpv3w3JAsWw2uhk)
-2. Create a directory inside ./CIHP_PGN called checkpoint
+2. Create a directory inside ./CIHP_PGN called checkpoint 
 3. Unzip the pretrained model into the checkpoint directory
 
-### Installation
+(IMPORTANT: The Folderstructure should look like this : `$HOME/CIHP_PGN/checkpoint/CIHP_pgn/`--> the 4 extracted files of the pretrained model should be inside that directory)
+
+
+## Installation
 1. Just run `docker-compose up` and wait until all 4 Containers are running
 
 2. Put your Frames into the `data/frames` directory
 
-### Usage
+## Usage
 scripts are provided within the scripts directory
 
 1. Prepare Data for Octopus
