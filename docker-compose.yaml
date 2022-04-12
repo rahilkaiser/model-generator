@@ -3,7 +3,7 @@ version: "3"
 services:
   semantic-segmentation:
     container_name: semantic_segmentation
-    build: ./semantic_segmentation
+    build: ./CIHP_PGN
     volumes: 
       - './data:/usr/src/app/data'
     command: tail -F anything #keep Container running

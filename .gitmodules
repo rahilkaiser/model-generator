@@ -1,3 +1,6 @@
 [submodule "octopus"]
 	path = octopus
 	url = git@github.com:rahilkaiser/octopus.git
+[submodule "CIHP_PGN"]
+	path = CIHP_PGN
+	url = git@github.com:rahilkaiser/CIHP_PGN.git
