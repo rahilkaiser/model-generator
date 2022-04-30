@@ -50,6 +50,14 @@ scripts are provided within the scripts directory
     ``` 
     The Result is a texture inside `data/texture`
 
+4. Autorig the generated model with RigNet
+    4.1 before docker-compose up you will have to run ```xhost +"local:docker@"```
+    4.2 after that execute     
+    ```
+    bash ./scripts/rigging.sh
+    ```
+    4.3 it will generate 
+
 4. To visualize the the generated model use Blender
 
     4.1 Import the obj model inside `data/obj_file`

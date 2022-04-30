@@ -7,3 +7,9 @@
 [submodule "semantic_human_texture_stitching"]
 	path = semantic_human_texture_stitching
 	url = https://github.com/rahilkaiser/semantic_human_texture_stitching.git
+[submodule "deep-motion-editing"]
+	path = deep-motion-editing
+	url = https://github.com/rahilkaiser/deep-motion-editing.git
+[submodule "RigNet"]
+	path = RigNet
+	url = git@github.com:rahilkaiser/RigNet.git
