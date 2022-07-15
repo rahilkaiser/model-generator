@@ -70,3 +70,21 @@ services:
         reservations:
           devices:
             - capabilities: [gpu]
+
+  deep-motion:
+    container_name: deep-motion
+    build: ./deep-motion-editing
+    # network_mode: host
+    volumes:
+      - './data:/usr/src/app/data'
+      # - /tmp/.X11-unix:/tmp/.X11-unix
+    command: tail -F anything #keep Container running
+    runtime: nvidia
+    environment:
+    - NVIDIA_VISIBLE_DEVICES=all  # or device number (e.g. 0) to allow a single gpu
+    # - DISPLAY=${DISPLAY}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]

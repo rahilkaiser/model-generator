@@ -62,6 +62,27 @@ scripts are provided within the scripts directory
 
     4.1 Import the obj model inside `data/obj_file`
     
-    4.2 Go to Shading and drag the texture from`data/texture` inside the shader-editor (the bottom panel)
+    4.2 Go to Shading and drag the texture from `data/texture` inside the shader-editor (the bottom panel)
     
     4.3 Inside the Shader-Editor use the Color-Output of the texture for the Basecolor-Input of the Princpal BSDF Component
+
+## Data-Folder Overview
+### data/frames:
+* is the input folder for 8 Images around the person 
+### data/keypoints:
+* contain the detected landmarks for body and face by openpose for each individual frame
+### data/segmentations:
+* contains the result of segmentations for each frame (basically the output of CIHP_PGN)
+### data/obj_file:
+* contains the generated obj file by octopus 
+### data/rignet:
+* contains the remeshed obj file (subdivided between 1k to 5k Vertices) rignet_input 
+   * needs to be called `sample_remesh.obj`
+   * can be done with MeshLab with the use of quadratic edge collapse
+* also contains after running the script the result txt-file of all joints informations
+### data/rignet/blender_result:
+* contains the generated Result fbx file created by the rignet-blender-plugin
+### data/stitching:
+* unwraps files for each image generated (this folder can be ignored for the modelgeneration)
+### data/texture:
+* is the result texture-file generated for the octopus result obj file
