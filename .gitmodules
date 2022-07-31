@@ -10,3 +10,6 @@
 [submodule "RigNet"]
 	path = RigNet
 	url = git@github.com:rahilkaiser/RigNet.git
+[submodule "docker-blender"]
+	path = docker-blender
+	url = git@github.com:rahilkaiser/docker-blender.git

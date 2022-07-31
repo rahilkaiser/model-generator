@@ -56,10 +56,10 @@ services:
   rignet:
     container_name: rignet
     build: ./RigNet
-    network_mode: host
+    # network_mode: host
     volumes:
       - './data:/usr/src/app/data'
-      - /tmp/.X11-unix:/tmp/.X11-unix
+      - '/tmp/.X11-unix:/tmp/.X11-unix'
     command: tail -F anything #keep Container running
     runtime: nvidia
     environment:
@@ -70,3 +70,24 @@ services:
         reservations:
           devices:
             - capabilities: [gpu]
+  blender:
+    build: ./docker-blender
+    container_name: blender
+    runtime: nvidia
+    security_opt:
+      - seccomp:unconfined #optional
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all    
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Berlin
+      - SUBFOLDER=/ #optional
+      - KEYBOARD=de-de-qwertz #optional
+    volumes:
+      - /path/to/config:/config
+      - './data:/data'
+    ports:
+      - 3000:3000
+    devices:
+      - /dev/dri:/dev/dri #optional
+    restart: unless-stopped

@@ -51,20 +51,79 @@ scripts are provided within the scripts directory
     The Result is a texture inside `data/texture`
 
 4. Autorig the generated model with RigNet
-    4.1 before docker-compose up you will have to run ```xhost +"local:docker@"```
+
+    4.1 You need to simplify the mesh so that the remeshed version has between 1000 to 5000 Vertices (for example use quadratic edge collapse with the Meshlab software)
+
+    4.1 You need to place the remeshed obj file in `data/rignet` and it needs to be named `sample_remesh.obj`
+
+    4.2 Also make sure the file `data/rignet/sample_normalized.binvox` exists
+
+    4.1 before docker-compose up you will have to run 
+    
+    ```
+    xhost +"local:docker@"
+    ```
+
     4.2 after that execute     
+    
     ```
     bash ./scripts/rigging.sh
     ```
-    4.3 it will generate 
+     Or even better (with visualisation) go inside the container with the following command:
 
-4. To visualize the the generated model use Blender
+     ```
+     docker exec -it rignet bash
+     ```
+     Make sure the conda environment `rignet_cuda11` is active and the run
 
-    4.1 Import the obj model inside `data/obj_file`
+     ```
+     python quick_start.py
+     ```
+
+    4.3 it will generate a textfile called `sample_ori_rig.txt` with the information about each skeleton-joint
+
+5. To visualize the the generated model use Blender
+
+    5.1 Install the brignet-plugin under Editor/Preferences -> Addons
+
+    5.2 Select under Modules-Path the conda environment dependencies ... located in /opt/conda/envs/brignet
+
+    5.3 Make sure to include the RignetModules to the pythonpath so python can find those with the following commands:
+
+    5.3.1 Go inside the docker-container:
+
+    ``` 
+    docker exec -it blender bash
     
-    4.2 Go to Shading and drag the texture from `data/texture` inside the shader-editor (the bottom panel)
+    ```
+
+    5.3.2 Run python to execute python-commands
+
+    ``` 
+    python
+    ```
+
+    5.3.3 Run the following python commands
+
+    ``` 
+    import sys
+    sys.path.insert(0, "/config/.config/blender/3.2/scripts/addons/brignet/RigNet/utils")
+    ```
     
-    4.3 Inside the Shader-Editor use the Color-Output of the texture for the Basecolor-Input of the Princpal BSDF Component
+    5.3.4 check wether Rignet utils folder should be included
+
+    ``` 
+    print(sys.path)
+    ```
+
+    5.3 on the right panel select the rignet-tab
+
+    5.4 Select for the Mesh the origin obj file inside the data and for the skeleton the generated txt-file and press on the "Loading rignet charackter" button
+    
+    5.2 For the textures go tothe Shading-panel and drag the texture from `data/texture` inside the shader-editor (the bottom panel)
+    
+    5.3 Inside the Shader-Editor use the Color-Output of the texture for the Basecolor-Input of the Princpal BSDF Component
+
 
 ## Data-Folder Overview
 ### data/frames:
